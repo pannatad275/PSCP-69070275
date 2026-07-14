@@ -1,2 +1,0 @@
-'''switch'''
-print("Hello World")
