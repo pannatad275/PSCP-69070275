@@ -2,24 +2,24 @@
 
 month = int(input())
 day = int(input())
-
+s = 0
 if month in [1, 2, 3]:
-    if month % 3 == 0 and day >= 21:
-        print("string")
-    elif month % 3 != 0:
-        print("winter")
+    s = "winter"
 elif month in [4, 5, 6]:
-    if month % 3 == 0 and day >= 21:
-        print("summer")
-    elif month % 3 != 0:
-        print("spring")
+    s = "spring"
 elif month in [7, 8, 9]:
-    if month % 3 == 0 and day >= 21:
-        print("fall")
-    elif month % 3 != 0:
-        print("summer")
+    s = "summer"
 elif month in [10, 11, 12]:
-    if month % 3 == 0 and day >= 21:
-        print("winter")
-    elif month % 3 != 0:
-        print("fall")
+    s = "fall"
+
+if not month % 3 and 21 <= day:
+    if s == "winter":
+        s = "spring"
+    elif s == "spring":
+        s = "summer"
+    elif s == "summer":
+        s = "fall"
+    elif s == "fall":
+        s = "winter"
+
+print(s)
