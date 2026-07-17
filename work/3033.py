@@ -7,8 +7,8 @@ def main():
     e = float(b)
     f = float(c)
 
-    x = 
+    x = (2 * m.pi * d) + f
+    y = e + (2 * d)
 
-
-    print(f"{x:.2f},{y:.2f}")
+    print(f"{y:.2f},{x:.2f}")
 main()
