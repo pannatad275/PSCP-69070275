@@ -10,5 +10,5 @@ def main():
     x = (2 * m.pi * d) + f
     y = e + (2 * d)
 
-    print(f"{y:.2f},{x:.2f}")
+    print(f"{y:.2f} {x:.2f}")
 main()
