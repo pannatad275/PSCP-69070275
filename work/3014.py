@@ -6,24 +6,13 @@ def main():
     c = int(input())
     d = int(input())
 
+    buy = d // a
+    total = buy
+    caps = buy
+    while caps >= b > 0:
+        change = (caps // b) * c
+        total += change
+        caps = (caps % b) + change
 
-    cap = 0
-    bottle = 0
-    x = ((d // a) // b) + (d // a)
-
-
-    if not b:
-        bottle = d // a
-
-    else:
-        for i in range(x):
-            i += 0
-            if cap >= b:
-                bottle += c
-                cap -= b
-            else:
-                bottle += 1
-            cap += 1
-
-    print(bottle)
+    print(total)
 main()
