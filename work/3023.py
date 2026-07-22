@@ -9,5 +9,3 @@ else:
                                     # str เปลี่ยนตัวเลขจาก i เป็นข้อความให้ len นับได้
     total = click + n
     print(total)
-    print(len(str(i)))
-    
