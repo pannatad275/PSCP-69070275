@@ -1,0 +1,13 @@
+'''up/down'''
+def main():
+    '''up/down'''
+    n1 = float(input())
+    n2 = float(input())
+    n3 = float(input())
+    if n1 < n2 < n3:
+        print("increasing")
+    elif n1 > n2 > n3:
+        print("decreasing")
+    else:
+        print("neither")
+main()
