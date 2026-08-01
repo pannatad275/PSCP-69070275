@@ -2,28 +2,42 @@
 import math as m
 def main():
     '''airportlink'''
-    park_in = float(input()) 
+    park_in = float(input())
     park_out = float(input())
-    x = abs(park_out - park_in)
-    if x <= 0.15:
-        price_park = "FREE"
+
+    in_h = int(park_in)
+    in_m = round((park_in - in_h) * 100)
+
+    out_h = int(park_out)
+    out_m = round((park_out - out_h) * 100)
+
+    if not (0 <= in_h <= 24 and 0 <= in_m < 60 and 0 <= out_h <= 24 and 0 <= out_m < 60):
+        print("ERROR")
+        return
+
+    if (in_h == 24 and in_m > 0) or (out_h == 24 and out_m > 0):
+        print("ERROR")
+        return
+
+    time_in = in_h * 60 + in_m
+    time_out = out_h * 60 + out_m
+
+    if time_out < time_in:
+        print("ERROR")
+        return
+
+    diff_m = time_out - time_in
+
+    if diff_m <= 15:
+        print("FREE")
+    elif diff_m > 24 * 60:
+        print("ERROR")
     else:
-        x = m.ceil(x)
-        if 1 <= x < 2:
-            price_park = 25
-        elif 2 <= x < 3:
-            price_park = 50
-        elif 3 <= x < 4:
-            price_park = 80
-        elif 4 <= x < 5:
-            price_park = 110
-        elif 5 <= x < 6:
-            price_park = 145
-        elif 6 <= x < 7:
-            price_park = 180
-        elif 7 <= x < 24:
-            price_park = 250
+        hours = m.ceil(diff_m / 60)
+        rates = [25, 50, 80, 110, 145, 180]
+        if hours <= 6:
+            price = rates[hours - 1]
         else:
-            price_park = "ERROR"
-    print(price_park)
+            price = 250
+        print(price)
 main()
