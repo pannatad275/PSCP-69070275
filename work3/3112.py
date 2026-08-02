@@ -3,12 +3,12 @@ def main():
     '''milktea'''
     line1 = input().strip().split()
     a = line1[0].upper()
-    b = int(line1[1])
+    b = float(line1[1])
 
     line2 = input().strip().split()
     c = line2[0].upper()
     d = int(line2[1])
-    e = int(line2[2])
+    e = float(line2[2])
 
     cal_p = 0
     cal_tea = 0
@@ -41,5 +41,10 @@ def main():
             cal_tea = 15 * e
         elif d == 3:
             cal_tea = 20 * e
-    print(cal_p + cal_tea)
+    total = cal_p + cal_tea
+
+    if total.is_integer():
+        print(int(total))
+    else:
+        print(total)
 main()
