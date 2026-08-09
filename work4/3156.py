@@ -8,6 +8,7 @@ def main():
     for i in word:
         if 'a' <= i <= 'z':
             p = abc.find(i)
-    print(p)
-            
+            new_p = (p + n) % 26
+            al.append(abc[new_p])
+    print("".join(al))
 main()
