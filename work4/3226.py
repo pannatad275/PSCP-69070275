@@ -3,10 +3,14 @@ def main():
     '''inflation'''
     n = float(input())
     k = int(input())
-    rate = 0.0381
+    satang = int(n * 100 + 0.5)
     for _ in range(k):
-        inc = n * rate
-        ans = int(inc * 100 + 1e-9) /100
-        n += ans
-    print(f'{n:.2f}')
+        increase = (satang * 381) // 10000
+        satang += increase
+    baht = satang // 100
+    rem = satang % 100
+    if rem < 10:
+        print(str(baht) + ".0" + str(rem))
+    else:
+        print(str(baht) + "." + str(rem))
 main()
