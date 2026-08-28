@@ -1,0 +1,21 @@
+'''bigframe'''
+def main():
+    '''bigframe'''
+    text1 = input()
+    text2 = input()
+    text3 = input()
+    text4 = input()
+    text5 = input()
+    x1 =len(text1)
+    x2 =len(text2)
+    x3 =len(text3)
+    x4 =len(text4)
+    x5 =len(text5)
+    len_max = max(x1,x2,x3,x4,x5)
+    print((len_max+4)*'*')
+    print('* '+ text1 + ' *')
+    print('* '+ text2 + ' *')
+    print('* '+ text3 + ' *')
+    print('* '+ text4 + ' *')
+    print('* '+ text5 + ' *')
+main()
