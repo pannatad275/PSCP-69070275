@@ -13,8 +13,8 @@ def main():
         base += min(n-100,100)*12
     if n > 200:
         base += (n-200) * 15
-    vat = base * 0.07
-    ft = n * 0.50
+    vat = round(base * 0.07, 1)
+    ft = round(n * 0.50, 1)
     total = base + vat + ft
     print(f'{total:.1f}')
 main()
