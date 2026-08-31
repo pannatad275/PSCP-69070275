@@ -15,12 +15,11 @@ def main():
 
         prize = 150
         if 15 <= age <= 22:
-            per = 80 / 100
+            per = 0.8
         elif 22 < age < 60:
             per = 1
         else:
-            per = 50 / 100
-
+            per = 0.5
         n -= want_tic
         total = (prize * want_tic) * per
         print(f'{total:.0f} {n}')
