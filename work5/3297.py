@@ -2,14 +2,14 @@
 def main():
     '''ticket'''
     n = int(input())
-    while n > 0:
+    for _ in range(n):
         age,want_tic = map(int,input().split())
 
         if age < 15:
             print(-1)
             continue
 
-        if want_tic > n:
+        if want_tic > n or not n:
             print(-2)
             continue
 
