@@ -2,8 +2,11 @@
 def main():
     '''ticket'''
     n = int(input())
-    for _ in range(n):
-        age,want_tic = map(int,input().split())
+    while n > 0:
+        try:
+            age,want_tic = map(int,input().split())
+        except EOFError:
+            break
 
         if age < 15:
             print(-1)
