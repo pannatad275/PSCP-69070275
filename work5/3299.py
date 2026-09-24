@@ -2,12 +2,12 @@
 def main():
     '''flower'''
     L,N = map(int,input().split())
-    start = 1
-    sum_n = 0
-    while sum_n < N:
-        sum_n += (start**2) * L
-        if sum_n >= N:
-            print(start)
+    diag = 1
+    while N > 0:
+        N -= diag
+        if N <= 0:
             break
-        start += 1
+        diag += 1
+    ans = (diag - 1) // L + 1
+    print(ans)
 main()
