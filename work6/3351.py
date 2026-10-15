@@ -1,47 +1,50 @@
-'''lan rab'''
-def main():
-    '''lan rab'''
-    text = input().upper()
-    n = len(text)
+'''rabbit'''
+word = input().strip().upper()
+n = len(word)
 
-    for i in range(n):
-        if text[i] not in 'RABIT':
-            print(f'no {i}')
-            return
-
-    for i in range(n):
-        if text[i] == 'R':
-            if i + 1 >= n or text[i + 1] != 'A':
-                print(f'no {i}')
-                return
-        elif text[i] == 'B':
-            if i + 1 >= n or (text[i + 1] != 'I' and text[i + 1] != 'T'):
-                print(f"no {i}")
-                return
-        elif text[i] == 'A':
-            if i == 0 or (text[i - 1] != 'R' and text[i - 1] != 'A'):
-                print(f"no {i}")
-                return
-
-    only_it = True
-    for char in text:
-        if char != 'I' and char != 'T':
-            only_it = False
+if all(ch in ('I', 'T') for ch in word):
+    print(f"unknown {n}")
+else:
+    is_valid = True
+    first_error_index = -1
+    i = 0
+    while i < n:
+        ch = word[i]
+        if ch not in ('R', 'A', 'B', 'I', 'T'):
+            is_valid = False
+            first_error_index = i
             break
+        if ch == 'R':
+            if i + 1 < n and word[i + 1] == 'A':
+                pass
+            else:
+                is_valid = False
+                first_error_index = i + 1 if i + 1 < n else i
+                break
+        elif ch == 'A':
+            if not i or word[i - 1] not in ('R', 'A'):
+                is_valid = False
+                first_error_index = i
+                break
+        elif ch == 'B':
+            if i + 1 < n and word[i + 1] in ('I', 'T'):
+                pass
+            else:
+                is_valid = False
+                first_error_index = i + 1 if i + 1 < n else i
+                break
+        i += 1
 
-    if only_it:
-        print(f"unknown {n}")
-        return
-
-    max_a = 0
-    current_a = 0
-    for char in text:
-        if char == 'A':
-            current_a += 1
-            if current_a > max_a:
-                max_a = current_a
-        else:
-            current_a = 0
-
-    print(f"yes {max_a}")
-main()
+    if is_valid:
+        max_a = 0
+        current_a = 0
+        for ch in word:
+            if ch == 'A':
+                current_a += 1
+                if current_a > max_a:
+                    max_a = current_a
+            else:
+                current_a = 0
+        print(f"yes {max_a}")
+    else:
+        print(f"no {first_error_index}")
